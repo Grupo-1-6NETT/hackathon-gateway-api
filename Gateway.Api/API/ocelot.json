@@ -1,0 +1,113 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://gatewayapi:8080",
+    "AuthenticationOptions": {
+      "AuthenticationProviderKey": "Bearer"
+    }
+  },
+  "Routes": [
+    // AUTH TOKEN
+
+    //GET FUNCIONARIO
+    {
+      "DownstreamPathTemplate": "/token/getfuncionario",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/token/getfuncionario",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    // GET CLIENTE
+    {
+      "DownstreamPathTemplate": "/token/getcliente",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/token/getcliente",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    //AUTH CLIENTE
+
+    //CADASTRO CLIENTE
+    {
+      "DownstreamPathTemplate": "/cliente",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/cliente",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+    //DELETAR CLIENTE -> ROLE GERENTE
+    {
+      "DownstreamPathTemplate": "/cliente/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/cliente/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "role": "Gerente"
+      }
+    },
+
+    //AUTH FUNCIONARIO
+
+    //CADASTRO FUNCIONARIO
+    {
+      "DownstreamPathTemplate": "/funcionario",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/funcionario",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+    //DELETAR FUNCIONARIO -> ROLE GERENTE
+    {
+      "DownstreamPathTemplate": "/funcionario/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "auth",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/funcionario/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "RequireAuthentication": true
+      },
+      "RouteClaimsRequirement": {
+        "role": "Gerente"
+      }
+    }
+  ]
+}
