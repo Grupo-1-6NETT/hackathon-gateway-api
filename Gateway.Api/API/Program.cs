@@ -17,7 +17,7 @@ var key = Encoding.UTF8.GetBytes("45262B37D9B63986B437DEBD5C8EA45262B37D9B63986B
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer("Bearer", options =>
     {
-        options.Authority = "http://auth:8082"; // URL do servi�o Auth
+        options.Authority = "http://auth:8082"; // URL do servico Auth
         options.RequireHttpsMetadata = false;
         options.TokenValidationParameters = new TokenValidationParameters
         {

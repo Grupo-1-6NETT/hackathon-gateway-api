@@ -108,6 +108,139 @@
       "RouteClaimsRequirement": {
         "role": "Gerente"
       }
+    },
+    //---------------------------------------------------------------------
+    // API PEDIDO
+
+    //POST PEDIDO
+    {
+      "DownstreamPathTemplate": "/pedido",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "pedidoapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/pedido",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "RequireAuthentication": true
+      }
+    },
+
+    //PATCH PEDIDO
+    {
+      "DownstreamPathTemplate": "/pedido",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "pedidoapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/pedido",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "RequireAuthentication": true
+      }
+    },
+
+    //GET PEDIDO ITEM
+    {
+      "DownstreamPathTemplate": "/pedidoitem",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "pedidoapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/pedidoitem",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+    //PATCH PEDIDO ITEM
+    {
+      "DownstreamPathTemplate": "/pedidoitem",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "pedidoapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/pedidoitem",
+      "UpstreamHttpMethod": [ "PATCH" ]
+    },
+
+    //DELETE PEDIDO ITEM
+    {
+      "DownstreamPathTemplate": "/pedidoitem/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "pedidoapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/pedidoitem/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ]
+    },
+    //---------------------------------------------------------------------
+    // API CARDAPIO API
+    //POST ITEM
+    {
+      "DownstreamPathTemplate": "/item",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "cardapioapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/item",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "RequireAuthentication": true
+      }
+    },
+    //PATCH ITEM
+    {
+      "DownstreamPathTemplate": "/item",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "cardapioapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/item",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "RequireAuthentication": true
+      }
+    },
+    //DELETE ITEM
+    {
+      "DownstreamPathTemplate": "/item/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "cardapioapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/item/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "RequireAuthentication": true
+      }
     }
   ]
 }
