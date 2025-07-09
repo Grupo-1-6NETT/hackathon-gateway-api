@@ -1,0 +1,16 @@
+# .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Build Results
+[Bb]uild/
+[Ll]og/
+
+# Others
+*.db
+*.sqlite
+*.bak
+.env
